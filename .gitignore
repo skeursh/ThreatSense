@@ -1,0 +1,16 @@
+# Java / Spring Boot
+target/
+*.iml
+*.class
+*.log
+
+# IntelliJ / VS Code
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker volumes
+postgres_data/
