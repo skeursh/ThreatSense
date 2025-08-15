@@ -1,4 +1,4 @@
-package com.threatsense.producer.model;
+package com.threatsense.model;
 
 import java.time.Instant;
 
@@ -7,6 +7,6 @@ public class NetworkLog {
     public String destIP;
     public int port;
     public String protocol;
-    public int bytes;
+    public long bytes;
     public Instant timestamp;
 }
