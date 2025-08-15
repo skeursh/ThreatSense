@@ -29,10 +29,8 @@ public class LogConsumerService {
     public void consume(String json) throws Exception {
         NetworkLog log = mapper.readValue(json, NetworkLog.class);
 
-        // Save raw log
         logRepo.save(toEntity(log)).subscribe();
 
-        // Rule check
         String reason = ruleReason(log);
         if (reason != null) {
             alertRepo.save(toAlert(log, reason)).subscribe();
@@ -41,8 +39,6 @@ public class LogConsumerService {
             System.out.println("[OK]    " + json);
         }
     }
-
-    /* Utilities */
 
     private static final Set<Integer> SUSPICIOUS_PORTS = Set.of(3389, 23, 445, 135);
 
